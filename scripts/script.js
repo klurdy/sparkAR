@@ -75,17 +75,7 @@ Promise.all([
     // null objects
     const group = objects[20];
 
-    // animation
-    const changeDriverParameters = {
-        durationMilliseconds: 400,
-        loopCount: 1,
-        mirror: true
-    };
-    const teeTransform = teeMesh.transform;
-    const changeDriver = Animation.timeDriver(changeDriverParameters);
-    changeDriver.start();
-    const changeSampler = Animation.samplers.easeInQuint(0.35, 0.4);
-    const changeAnimation = Animation.animate(changeDriver, changeSampler);
+    
 
     const picker = NativeUI.picker;
 
@@ -142,6 +132,17 @@ Promise.all([
         bottomMesh.material = printMaterial;
 
         // apply animation
+        // animation
+        const changeDriverParameters = {
+            durationMilliseconds: 400,
+            loopCount: 1,
+            mirror: true
+        };
+        const teeTransform = teeMesh.transform;
+        const changeDriver = Animation.timeDriver(changeDriverParameters);
+        changeDriver.start();
+        const changeSampler = Animation.samplers.easeInQuint(0.35, 0.4);
+        const changeAnimation = Animation.animate(changeDriver, changeSampler);
         teeTransform.scaleX = changeAnimation;
         teeTransform.scaleY = changeAnimation;
         teeTransform.scaleZ = changeAnimation;
